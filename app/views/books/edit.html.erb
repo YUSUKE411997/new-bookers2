@@ -1,4 +1,13 @@
 <h1>編集機能</h1>
+
+    <% if @book.errors.any? %>
+<%= @book.errors.count %>件発生しました
+<%= @book.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+
+
 <%= form_with model: @book,url:"/books/#{@book.id}",local: true do |f| %> 
 <p>Title</p>
 <%= f.text_field :book_title %>
@@ -6,3 +15,5 @@
 <%= f.text_area :book_body %>
 <%= f.submit "Update Back" %>
 <% end %>
+<%= link_to "Show",book_path %>
+<%= link_to "Back",books_path %>
