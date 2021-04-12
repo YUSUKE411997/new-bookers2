@@ -1,0 +1,10 @@
+<h1>Book detail</h1>
+<div>
+  <p>name</p>
+  <p>image</p>
+  <%= @book.book_title %>
+  <%= @book.book_body %>
+  <%= link_to "edit",edit_book_path %>
+  <%= link_to "Destroy",book_path,method: :delete,"data-confirm" => "Are you sure ?" %>
+</div>
+

@@ -13,7 +13,7 @@
     <% if user_signed_in? %>
     <li>Home</li>
     <li>Users</li>
-    <li>Books</li>
+    <%= link_to "Books", books_path %>
     <li>
     <%= link_to "logout",destroy_user_session_path,method: :delete %>
     </li>

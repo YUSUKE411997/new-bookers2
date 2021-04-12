@@ -1,0 +1,8 @@
+<h1>編集機能</h1>
+<%= form_with model: @book,url:"/books/#{@book.id}",local: true do |f| %> 
+<p>Title</p>
+<%= f.text_field :book_title %>
+<p>Opinion</p>
+<%= f.text_area :book_body %>
+<%= f.submit "Update Back" %>
+<% end %>
