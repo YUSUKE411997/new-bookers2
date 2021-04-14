@@ -1,20 +1,17 @@
-<h1>User info</h1>
-<h4>image</h4>
-<h4>name</h4>
-<h4>introduction</h4>
-<%= link_to "ユーザー編集",edit_user_path(current_user.id) %>
+<% if flash[:notice] %>
+<%= flash[:notice] %>
+         <% end %>
 
+
+<h1>User info</h1>
+<%= attachment_image_tag current_user,:profile_image,:fill, 60, 60, format:'jpeg',fallback:'no_image.jpg' %>
+<%= current_user.name %>
+<%= current_user.introduction %>
+<%= link_to "ユーザー編集",edit_user_path(current_user.id) %>
 
 
 <div>
   <h1>New book</h1>
-  
-    <% if @book.errors.any? %>
-<%= @book.errors.count %>件発生しました
-<%= @book.errors.full_messages.each do |message| %>
-    <%= message %>
-  <% end %>
-<% end %>
 
   <%= form_with model: @book,local: true do |f| %>
   <h4>Title</h4>
@@ -24,6 +21,14 @@
   <%= f.submit "Create Book" %>
   <% end %>
 </div>
+
+
+    <% if @book.errors.any? %>
+<h2><%= @book.errors.count %>件発生しました</h2>
+<%= @book.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
 
 
 <table>
