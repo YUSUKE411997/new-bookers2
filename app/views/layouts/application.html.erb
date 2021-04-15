@@ -25,25 +25,35 @@
     
     
     <% if user_signed_in? %>
-    <i class="fas fa-home"></i>
-    <li class="nav-item"><%= link_to "Home", user_path(current_user.id) %></li>
-    <i class="fas fa-user-tag"></i>
-    <li class="nav-item"><%= link_to "Users", users_path %></li>
-    <li class="fas fa-quran"></li>
-    <li class="nav-item"><%= link_to "Books", books_path %></li>
-    <i class="fas fa-sign-in-alt"></i>
-    <li class="nav-item"><%= link_to "logout",destroy_user_session_path,method: :delete %></li>
+    
+    <li class="nav-item"><%= link_to  user_path(current_user.id) do %>
+    <i class="fas fa-home"></i>Home<% end %></li>
+    
+    
+    <li class="nav-item"><%= link_to  users_path do %>
+    <i class="fas fa-user-tag"></i>Users<% end %></li>
+    
+    
+    <li class="nav-item"><%= link_to  books_path do %>
+    <li class="fas fa-quran">Books</li><% end %></li>
+    
+    <li class="nav-item"><%= link_to destroy_user_session_path,method: :delete do %>
+    <i class="fas fa-sign-in-alt">logout</i><% end %></li>
     
     
     <% else %>
-    <%= icon("fas", "building") %>
-    <li class="nav-item"><%= link_to "Home", root_path %></li>
-    <i class="fas fa-eye"></i>
-    <li class="nav-item"><%= link_to "About", homes_about_path %></li>
-    <i class="fas fa-user-plus"></i>
-    <li class="nav-item"><%= link_to "sign up",new_user_registration_path %></li>
-    <i class="fas fa-sign-in-alt"></i>
-    <li class="nav-item"><%= link_to "login",new_user_session_path %></li>
+    
+    <li class="nav-item"><%= link_to  root_path do %>
+    <i class="fas fa-home"></i>Home<% end %></li>
+    
+    <li class="nav-item"><%= link_to home_about_path do %>
+    <i class="fas fa-eye">About</i><% end %></li>
+    
+    <li class="nav-item"><%= link_to new_user_registration_path do %>
+    <i class="fas fa-user-plus">sign up</i><% end %></li>
+    
+    <li class="nav-item"><%= link_to new_user_session_path do %>
+    <i class="fas fa-sign-in-alt">login</i><% end %></li>
     
     <% end %>
     
@@ -54,6 +64,12 @@
     </nav>
     </header>
   </body>
+  <% if flash[:notice] %>
+<%= flash[:notice] %>
+         <% end %>
+  <footer>
+    <h5>CopyRight Infratop.inc</h5>
+  </footer>
   
   <%= yield %>
   
@@ -62,5 +78,6 @@
   
   
 </html>
+
 
 
