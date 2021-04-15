@@ -21,8 +21,8 @@
   <table class="table table-striped">
   <% @books.each do |book| %>
   <li><%= attachment_image_tag book.user, :profile_image, :fill, 60, 60, format:'jpeg', fallback:'no_image.jpg' %></li>
-  <li><%=link_to book.book_title,book_path(book) %></li>
-  <li><%= book.book_body %></li>
+  <li><%=link_to book.title,book_path(book) %></li>
+  <li><%= book.body %></li>
   <% end %>
 </table>
 

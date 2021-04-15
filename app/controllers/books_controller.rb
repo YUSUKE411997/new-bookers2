@@ -36,7 +36,7 @@ class BooksController < ApplicationController
     @book.user_id = current_user.id
     if @book.update(book_params)
        flash[:notice] = "successfully"
-       redirect_to book_path(@book.id)
+       redirect_to book_path(@book)
     else
        render :edit
     end 
@@ -52,7 +52,8 @@ class BooksController < ApplicationController
   private
   
   def book_params
-    params.require(:book).permit(:book_title, :book_body)
+    params.require(:book).permit(:title, :body)
   end 
   
 end
+
