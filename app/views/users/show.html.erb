@@ -6,7 +6,7 @@
 
 <%= render 'books/list',book:@book,user:@user %>
 
-
+<table class="table table-striped">
 <h1>User Info</h1>
 <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format:'jpeg', fallback:"no_image.jpg" %>
 <h4>Name</h4>
@@ -23,5 +23,5 @@
   <li><%= book.book_body %></li>
   <% end %>
   
-  
+  </table>
   

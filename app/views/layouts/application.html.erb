@@ -4,35 +4,63 @@
     <title>Bookers2</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  
+  
+  
+  
 
-    <h3><%= link_to "Bookers",root_path %></h3>
+    
 
   <body>
-
+    <header style="background-color: red;">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <h3><%= link_to "Bookers",root_path %></h3>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+         <ul class="navbar-nav ml-auto">
+           
+    
     
     <% if user_signed_in? %>
-    <li><%= link_to "Home", user_path(current_user.id) %></li>
-    <li><%= link_to "Users", users_path %></li>
-    <li><%= link_to "Books", books_path %></li>
-    <li><%= link_to "logout",destroy_user_session_path,method: :delete %></li>
-    
+    <i class="fas fa-home"></i>
+    <li class="nav-item"><%= link_to "Home", user_path(current_user.id) %></li>
+    <i class="fas fa-user-tag"></i>
+    <li class="nav-item"><%= link_to "Users", users_path %></li>
+    <li class="fas fa-quran"></li>
+    <li class="nav-item"><%= link_to "Books", books_path %></li>
+    <i class="fas fa-sign-in-alt"></i>
+    <li class="nav-item"><%= link_to "logout",destroy_user_session_path,method: :delete %></li>
     
     
     <% else %>
-    <li><%= link_to "Home", root_path %></li>
-    <li><%= link_to "About", homes_about_path %></li>
-    <li><%= link_to "sign up",new_user_registration_path %></li>
-    <li><%= link_to "login",new_user_session_path %></li>
+    <%= icon("fas", "building") %>
+    <li class="nav-item"><%= link_to "Home", root_path %></li>
+    <i class="fas fa-eye"></i>
+    <li class="nav-item"><%= link_to "About", homes_about_path %></li>
+    <i class="fas fa-user-plus"></i>
+    <li class="nav-item"><%= link_to "sign up",new_user_registration_path %></li>
+    <i class="fas fa-sign-in-alt"></i>
+    <li class="nav-item"><%= link_to "login",new_user_session_path %></li>
     
     <% end %>
     
     
-    <%= yield %>
+    
+    </ul>
+    </div>
+    </nav>
+    </header>
   </body>
+  
+  <%= yield %>
+  
+  
+  
+  
+  
 </html>
 
 

@@ -15,9 +15,10 @@
 <% end %>
 
 
-<table>
+
   <h1>Books</h1>
   <h4>Title</h4><h4>Opinion</h4>
+  <table class="table table-striped">
   <% @books.each do |book| %>
   <li><%= attachment_image_tag book.user, :profile_image, :fill, 60, 60, format:'jpeg', fallback:'no_image.jpg' %></li>
   <li><%=link_to book.book_title,book_path(book) %></li>
