@@ -1,13 +1,18 @@
 <% if flash[:notice] %>
-<%= flash[:notice] %>
-         <% end %>
+  <%= flash[:notice] %>
+  <% end %>
+
+
+<%= render 'books/list',book:@book_new %>
+
+
 
 <h1>Book detail</h1>
 <%= attachment_image_tag @book.user,:profile_image,:fill, 60, 60, format:'jpeg',fallback:'no_image.jpg' %>
-<%= link_to @book.user.name, user_path %>
-<%= @book.book_title %>
+<%= link_to @book.user.name, user_path(@book.user.id) %>
+<%= link_to @book.book_title,edit_book_path %>
 <%= @book.book_body %>
-
-
+<%= link_to "edit", edit_book_path %>
+<%= link_to "destroy",book_path(@book),method: :delete,"data-confirm" => "Are you sure ?" %>
 
 

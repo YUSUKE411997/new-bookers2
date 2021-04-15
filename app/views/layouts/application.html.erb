@@ -9,7 +9,11 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+    <h3><%= link_to "Bookers",root_path %></h3>
+
   <body>
+
+    
     <% if user_signed_in? %>
     <li><%= link_to "Home", user_path(current_user.id) %></li>
     <li><%= link_to "Users", users_path %></li>
@@ -17,13 +21,15 @@
     <li><%= link_to "logout",destroy_user_session_path,method: :delete %></li>
     
     
+    
     <% else %>
-    <li><%= link_to "Home", users_path %></li>
-    <li>About</li>
+    <li><%= link_to "Home", root_path %></li>
+    <li><%= link_to "About", homes_about_path %></li>
     <li><%= link_to "sign up",new_user_registration_path %></li>
     <li><%= link_to "login",new_user_session_path %></li>
     
     <% end %>
+    
     
     <%= yield %>
   </body>
