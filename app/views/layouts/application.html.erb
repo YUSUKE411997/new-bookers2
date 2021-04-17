@@ -16,43 +16,49 @@
     
 
   <body>
-    <header style="background-color: red;">
-      <nav class="navbar navbar-expand-lg navbar-light">
-        <h3><%= link_to "Bookers",root_path %></h3>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+        <span class="navbar-brand"><%= link_to "Bookers",root_path %></span>
+          
+          
+          
+          
+          
+        <div class="navbar-collapse collapse show" id="navbarNavDropdown">
          <ul class="navbar-nav ml-auto">
            
     
     
     <% if user_signed_in? %>
     
-    <li class="nav-item"><%= link_to  user_path(current_user.id) do %>
+    <li class="text-light nav-link"><%= link_to  user_path(current_user.id) do %>
     <i class="fas fa-home"></i>Home<% end %></li>
     
     
-    <li class="nav-item"><%= link_to  users_path do %>
-    <i class="fas fa-user-tag"></i>Users<% end %></li>
+    <li class="text-light nav-link"><%= link_to  users_path do %>
+    <i class="fas fa-users"></i>Users<% end %></li>
     
     
-    <li class="nav-item"><%= link_to  books_path do %>
-    <li class="fas fa-quran">Books</li><% end %></li>
+    <li class="text-light nav-link"><%= link_to  books_path do %>
+    <i class="fas fa-book-open"></i>Books<% end %></li>
     
-    <li class="nav-item"><%= link_to destroy_user_session_path,method: :delete do %>
-    <i class="fas fa-sign-in-alt">logout</i><% end %></li>
+    <li class="text-light nav-link"><%= link_to destroy_user_session_path,method: :delete do %>
+    <i class="fas fa-sign-out-alt">logout</i><% end %></li>
     
     
     <% else %>
     
-    <li class="nav-item"><%= link_to  root_path do %>
+    <li class="text-light nav-link"><%= link_to  root_path do %>
     <i class="fas fa-home"></i>Home<% end %></li>
     
-    <li class="nav-item"><%= link_to home_about_path do %>
-    <i class="fas fa-eye">About</i><% end %></li>
+    <li class="text-light nav-link"><%= link_to home_about_path do %>
+    <i class="fas fa-link">About</i><% end %></li>
     
-    <li class="nav-item"><%= link_to new_user_registration_path do %>
+    <li class="text-light nav-link"><%= link_to new_user_registration_path do %>
     <i class="fas fa-user-plus">sign up</i><% end %></li>
     
-    <li class="nav-item"><%= link_to new_user_session_path do %>
+    <li class="text-light nav-link"><%= link_to new_user_session_path do %>
     <i class="fas fa-sign-in-alt">login</i><% end %></li>
     
     <% end %>
@@ -61,19 +67,28 @@
     
     </ul>
     </div>
+    
+    
+    </div>
     </nav>
     </header>
-  </body>
+  
   <% if flash[:notice] %>
 <%= flash[:notice] %>
          <% end %>
-  <footer>
-    <h5>CopyRight Infratop.inc</h5>
-  </footer>
-  
+
+</body>
   <%= yield %>
   
-  
+    <footer>
+    <div class="container mt-5">
+      <div class="row">
+        <div class="mx-auto">
+          <p>CopyRight Infratop.inc</p>
+        </div>
+      </div>
+    </div>
+  </footer>
   
   
   
